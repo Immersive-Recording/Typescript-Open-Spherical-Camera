@@ -49,6 +49,7 @@ export class OpenSphericalCamera{
         if(!this.info.api.includes("/osc/state")){
             throw new Error("The camera doesn't implement states?");
         }
+        //TODO: Add in state timeout functionality here. `/osc/checkForUpdates`
         let rawState = await this.request("/osc/state").then(resp => resp.json());
 
         let sessionId: string | null = null;
